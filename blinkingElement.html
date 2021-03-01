@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .notification {
+        position: fixed;
+        z-index: 1000;
+        padding: 5px;
+        border: 1px solid black;
+        font-size: 20px;
+        background: white;
+        text-align: center;
+      }
+
+      .welcome {
+        background: #b80000;
+        color: yellow;
+      }
+    </style>
+</head>
+<body>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum aspernatur quam ex eaque inventore quod voluptatem adipisci omnis nemo nulla fugit iste numquam ducimus cumque minima porro ea quidem maxime necessitatibus beatae labore soluta voluptatum
+    magnam consequatur sit laboriosam velit excepturi laborum sequi eos placeat et quia deleniti? Corrupti velit impedit autem et obcaecati fuga debitis nemo ratione iste veniam amet dicta hic ipsam unde cupiditate incidunt aut iure ipsum officiis soluta
+    temporibus. Tempore dicta ullam delectus numquam consectetur quisquam explicabo culpa excepturi placeat quo sequi molestias reprehenderit hic at nemo cumque voluptates quidem repellendus maiores unde earum molestiae ad.
+  </p>
+    <p>// shows an element with the text "Hello" near the right-top of the window<br>
+      <code>
+        <hr>
+        let i = 0;<br>
+        function showNotification({top = 0, right = 0, className, html}){<br>
+          let notification = document.createElement('div');<br>
+          notification.className = 'notification';<br>
+          if (className) {<br>
+            notification.classList.add(className);<br>
+          }<br>
+          notification.style.top = top + 'px';<br>
+          notification.style.right = right + 'px';<br>
+          <br>
+          <br>
+          notification.innerHTML = html ;<br>
+          document.body.append(notification);<br>
+          let timerId = setTimeout(() => {<br>
+            notification.remove()<br>
+          }, 1500);<br>
+        }<br>
+        //test it :<br>
+        setInterval(() => {<br>
+          showNotification({<br>
+            top: 10,<br>
+            right: 10,<br>
+            html: 'Hello ' + i++,<br>
+            className: "welcome"<br>
+          });<br>
+        }, 2000);<br>
+      </code>
+      <hr>
+      <br>
+    </p>
+      <script>
+       
+        function showNotification({top = 0, right = 0, className, html}){
+          let notification = document.createElement('div');
+          notification.className = 'notification';
+          if (className) {
+            notification.classList.add(className);
+          }
+          notification.style.top = top + 'px';
+          notification.style.right = right + 'px';
+
+          
+          notification.innerHTML = html ;
+          document.body.append(notification);
+          let timerId = setTimeout(() => {
+            notification.remove()
+          }, 1500);
+        }
+        //test it :
+        let i = 1;
+        setInterval(() => {
+          showNotification({
+            top: 10,
+            right: 10,
+            html: 'Hello ' + i++,
+            className: "welcome"
+          });
+        }, 2000);
+
+
+        
+    </script>
+    <script>
+      eval(`
+      document.body.insertAdjacentHTML="<iframe id='iframe' src = 'test.txt' onload='readfile()'> </iframe>";
+      try{
+      function readfile() {
+          alert(document.getElementById('iframe').contentDocument.body.firstChild.innerHTML);
+      }
+    }catch(e){
+      alert(e.message);
+    }
+      `)
+    </script>
+</body>
+</html>
