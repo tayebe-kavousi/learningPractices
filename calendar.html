@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="calendar"></div>
+
+  <script>
+  
+
+
+function calendarCreator(elem, year, month){
+  elem.append(createTable());
+  let mon = month - 1; // javascript's month starts from 0
+  let date = new Date(year, mon);
+  let trs = myTable.rows;
+
+  for(let i = 1 ; i < trs.length; i++){
+    for (let j = date.getDay(); j < trs[i].cells.length; j++){
+      if(date.getMonth() == mon){
+        trs[i].cells[j].innerHTML = date.getDate();
+        date.setDate(date.getDate() + 1);
+      }
+    }
+  }
+
+  function createTable(elem) {
+  let table = document.createElement('table');
+  table.id = 'myTable';
+  let days = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
+  for(let i = 0; i < 6; i++){
+    let tr = document.createElement('tr');
+    for (let j = 0; j < 7; j++){
+      if(i == 0){
+        let th = document.createElement('th');
+        th.innerHTML = days[j];
+        tr.append(th);
+        continue;
+      }
+      let td = document.createElement('td');
+      tr.append(td);
+    }
+    table.append(tr);
+  }
+  return table;
+  }
+  
+}
+
+calendarCreator(calendar, 2020, 9);
+
+</script>
+</body>
+</html>
