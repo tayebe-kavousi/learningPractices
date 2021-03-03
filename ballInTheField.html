@@ -10,11 +10,17 @@
         background-color: #aaa;
       }
       #field {
+        position: relative;
         width: 200px;
         height: 150px;
         border: 10px solid black;
         background-color: #00FF00;
-        overflow: hidden;
+      }
+      #ball {
+        position: absolute;
+        left:0;
+        top:0;
+        transition: 1s all;
       }
     </style>
   </head>
@@ -26,41 +32,11 @@
   
   
     <div id="field">
-      <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      
     </div>
   
-  <script>
-    let moveTheBall = {
-
-      handleEvent(event){
-        let ball = document.getElementById('ball');
-        ball.style.position = 'absolute';
-
-        let ballWidth = parseInt(getComputedStyle(ball).width);
-        let x1  = field.offsetLeft + +field.clientLeft, x2 = field.clientWidth, y1 = field.offsetTop + +field.clientTop, y2 = field.clientHeight;
-        
-        console.log(`x1: ${x1}, x2: ${x2}, y1: ${y1}, y2: ${y2} `);
-        console.log(`event.clientX: ${event.clientX}, event.clientY: ${event.clientY}`);
-        if (event.clientX < x1){}
-        if ( event.clientX > x2) {
-          console.log('bluberry');
-          ball.style.left = event.clientX - ball.style.width - field.clientLeft + "px";
-        } 
-        // if(event.clientY > y1 && event.clientY < y2){
-        //   console.log("cherry");
-        //} 
-        else {
-          //ball.style.top = (event.clientY - ballWidth/2) + "px";          
-          ball.style.left = (event.clientX - ballWidth/2) +"px";
-        }
-        ball.style.top = event.clientY + "px";          
-      }
-    }
-
-
-    field.addEventListener('click', moveTheBall);
-
-  </script>
+  <script src="ballInTheField.js"></script>
 </body>
 </html>
