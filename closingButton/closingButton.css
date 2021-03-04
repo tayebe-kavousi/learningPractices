@@ -1,0 +1,23 @@
+.pane {
+    background-color: #895;
+    border-top:1px solid #3d4;
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    display: block;
+  }
+  h3{
+    display: block;
+    width:550px;
+  }
+  .remove-button {
+    display:block;
+    float: right;
+    margin-top:0;
+    padding-top: 0;
+    background-color: #895;
+    color: red;
+    border: none;
+    font-size: 1.5rem;
+  }
+  
