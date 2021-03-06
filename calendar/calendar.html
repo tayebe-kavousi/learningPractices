@@ -27,50 +27,6 @@
 <body>
   <div id="calendar"></div>
 
-  <script>
-  
-
-
-function calendarCreator(elem, year, month){
-  elem.append(createTable());
-  let mon = month - 1; // javascript's month starts from 0
-  let date = new Date(year, mon);
-  let trs = myTable.rows;
-
-  for(let i = 1 ; i < trs.length; i++){
-    for (let j = date.getDay(); j < trs[i].cells.length; j++){
-      if(date.getMonth() == mon){
-        trs[i].cells[j].innerHTML = date.getDate();
-        date.setDate(date.getDate() + 1);
-      }
-    }
-  }
-
-  function createTable(elem) {
-  let table = document.createElement('table');
-  table.id = 'myTable';
-  let days = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
-  for(let i = 0; i < 6; i++){
-    let tr = document.createElement('tr');
-    for (let j = 0; j < 7; j++){
-      if(i == 0){
-        let th = document.createElement('th');
-        th.innerHTML = days[j];
-        tr.append(th);
-        continue;
-      }
-      let td = document.createElement('td');
-      tr.append(td);
-    }
-    table.append(tr);
-  }
-  return table;
-  }
-  
-}
-
-calendarCreator(calendar, 2020, 9);
-
-</script>
+<script src = ./calendar.js></script>
 </body>
 </html>
