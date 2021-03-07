@@ -41,5 +41,23 @@ function createCalendar(elem, year, month){
     info.innerHTML = year + " " + months[month];
     info.style.cssText= "width:200px; background-color: #999; "
 }
+
 let div = document.querySelector('.calendar');
-createCalendar(div, 2021, 3);
+createCalendar(div, 2021, 4);
+Array.from(document.getElementsByTagName('td')).forEach(td => {
+    let selectedTD;
+    table.onclick = function(event) {
+                        let target = event.target;
+                        if(target.tagName != 'TD') return;
+                        highLight(target);
+                    };
+
+    function highLight(event){
+        if(selectedTD){
+            selectedTD.classList.remove('highlight');
+        }
+        selectedTD = td;
+        selectedTD.classList.add('highlight');
+    }
+});
+
