@@ -44,20 +44,20 @@ function createCalendar(elem, year, month){
 
 let div = document.querySelector('.calendar');
 createCalendar(div, 2021, 4);
-Array.from(document.getElementsByTagName('td')).forEach(td => {
-    let selectedTD;
-    table.onclick = function(event) {
-                        let target = event.target;
-                        if(target.tagName != 'TD') return;
-                        highLight(target);
-                    };
 
-    function highLight(event){
-        if(selectedTD){
-            selectedTD.classList.remove('highlight');
-        }
-        selectedTD = td;
-        selectedTD.classList.add('highlight');
+// add events delegation to table :
+let selectedTD;
+table.onclick = function(event) {
+                    let target = event.target;
+                    if(target.tagName != 'TD') return;
+                    highLight(target);
+                };
+
+function highLight(td){
+    if(selectedTD){
+        selectedTD.classList.remove('highlight');
     }
-});
+    selectedTD = td;
+    selectedTD.classList.add('highlight');
+}
 
