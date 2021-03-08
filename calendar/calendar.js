@@ -39,7 +39,7 @@ function createCalendar(elem, year, month){
     table.insertAdjacentElement("beforebegin", info);
     let months = {1:'JAN', 2:'FEB', 3:'MAR', 4:'APR', 5:'MAY', 6:'JUN', 7:'JUL', 8:'AGU', 9:'SEP', 10:'OCT', 11:'NOV', 12:'DEC'};
     info.innerHTML = year + " " + months[month];
-    info.style.cssText= "width:200px; background-color: #999; "
+    info.style.cssText= "width:198px; background-color: #999; "
 }
 
 let div = document.querySelector('.calendar');
