@@ -1,12 +1,25 @@
 grid.onclick = function(event){
-    let id = event.target.dataset.type;
-    let index = event.target.cellIndex; 
-    for(let i= 1 ; i<grid.rows.length; i++){
-        grid.rows[i].cells[index].id = id;
+    if (event.target.tagName != 'TH') return;
+    let th = event.target;
+    sortGrid(th.cellIndex, th.dataset.type);
+};
+
+function sortGrid(colNum, type){
+    let tbody = grid.querySelector('tbody');
+    let rowsArray = Array.from(tbody.rows);
+    let compare;
+    switch(type){
+        case "number":
+            compare = function(rowA, rowB){
+                return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+            };
+            break;
+        case "string":
+            compare = function(rowA, rowB){
+                return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML?1:-1;
+            };
+            break;
     }
-    let list = grid.querySelectorAll('#id');
-    if(typeof id == "number"){
-     list.sort((a,b)=>a-b);
-    }
-    console.log(list)
+    rowsArray.sort(compare);
+    tbody.append(...rowsArray);
 }
