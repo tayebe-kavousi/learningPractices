@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+    <style>
+        h1 {
+    color: #1abc9c;
+    }
+    .rem {
+        margin-left: 5px;
+        background-color: white;
+        color: red;
+        border: none;
+        cursor: pointer;
+    }
+    </style>
+
+</head>
+<body>
+    <h1>To Do List</h1>
+    <input id="input" type="text" val="" placeholder="New Item">
+    <input type="submit" id="add">
+    <ol id="myList">
+    </ol>
+    <script src="jQuery.js"></script>
+    <script>
+        $(function(){
+            $('#add').on("click", function(){
+                let val = $('#input').val();
+                if(val != ''){
+                    let elem = $('<li></li>').text(val);
+                    elem.append('<button class="rem">X</button>');
+                    $('#myList').append(elem);
+                    $('#input').val('');
+                    $('.rem').on('click', function(){
+                        $(this).parent().remove();
+                    });
+                }
+            });
+        });
+                
+    </script>
+</body>
+</html>
