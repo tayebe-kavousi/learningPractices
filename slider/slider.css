@@ -1,10 +1,10 @@
 .slider {
     border-radius: 5px;
-    background: #E0E0E0;
+    background: #9e4141;
     background: linear-gradient(left top, #E0E0E0, #EEEEEE);
     width: 310px;
     height: 15px;
-    margin: 5px;
+    margin: 50px;
   }
   
   .thumb {
