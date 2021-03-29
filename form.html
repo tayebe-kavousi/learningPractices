@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
     <style>
         .invalid {
@@ -16,13 +17,13 @@
     </style>
 </head>
 <body>
-    <form action="#" method="GET" name="register" autocomplete="on">
+    <form action="https://google.com/search" method="GET" name="register" autocomplete="on">
         <fieldset name="info" tabindex="1">
             <legend>personal information</legend>
             <label for="fname">First Name: </label>
-            <input type="text" id="fname" autofocus><br><br>
+            <input type="text" id="fname" autofocus><span id="result"></span><br><br>
             <label for="lname">Last Name: </label>
-            <input type="text" id="lname"><br><br>
+            <input type="text" id="lname"><span id='result01'></span><br><br>
             <p>Plese select your gender: </p>
             <input type="radio" name="gender" value="Female">
             <label for="gender">Female</label>
@@ -31,7 +32,7 @@
             <label for="email">Enter your email please: </label>
             <input type="mail" name="email"><div id="e"></div><br><br>
             <label for="phone">Phone Number</label>
-            <input type="tell" id="phone"><br><br>
+            <input name='phone' type="tell" id="phone"><br><br>
             <label for="address">Address</label>
             <input type="text"><br><br>
             <p>select your nationality : </p>
@@ -41,14 +42,24 @@
                 <option value="indian">Indian</option>    
             </select><br><br>
             <input type="checkbox" name="newspaper" checked>
-            <label for="newspaper"> register for our newspaper</label>
+            <label for="newspaper"> register for our newspaper</label><br><br>
+
+            
+            <input type="text" name="q" id="searchInput" placeholder="search" value=''>
+            <button type="submit" id="search"><i class="fa fa-search"></i></button>
 
             <p>leave your comment here:</p>
             <textarea name="comment" id="comment" cols="30" rows="10"></textarea><br><br>
         </fieldset>
-        <input type="submit" value="Register">
+        <input id="submit" type="submit" value="Register">
     </form>
     <script>
+        if(document.readyState == "loading"){
+           alert("loading");
+       }
+       if(document.readyState=="interactive"){
+           alert("interactive");
+       }else alert("complete");
         let form = document.forms[0];
         let female = form.gender[0];
         female.checked = true;
@@ -66,13 +77,30 @@
                 email.classList.remove('invalid')
             }
         };
+        fname.oninput = function(){
+            result.innerHTML = fname.value;
+        }
+        form.lname.onchange = function(){
+            result01.innerHTML = lname.value;
+        }
+        phone.onpaste = function(event){
+            console.log(`${event.type} - ${event.clipboardData.getData('text/plain')}`);
+            return false;
+        }
         // email.onfocus = function(){
         //     if(this.classList.contains('invalid')){
         //         this.classList.remove('invalid');
         //         e.innerHTML="";
         //     }
         // }
-
+        let searchInput = form.searchInput;
+        search.onclick = function(){
+            
+        }
+        submit.onclick = function(){
+            alert('are you sure you want to submit? ')
+        }
+       
     </script>
 </body>
 </html>
