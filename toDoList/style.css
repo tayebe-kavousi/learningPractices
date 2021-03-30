@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+}
+:root {
+    /* theme font-family */
+    --Anton: 'Anton', sans-serif;
+    --Abel: 'Abel', sans-serif;
+    --Josefin: 'Josefin Sans', sans-serif;
+    --Lexend: 'Lexend Deca', sans-serif;
+    --Livvic: 'Livvic', sans-serif;
+}
+
+body {
+    width:90vw;
+    height: 96vh;
+    background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 20%, #e6dee9 100%);;
+}
+
+#input {
+    width: 20%;
+    margin-left: 45px;
+}
+
+#add{
+    background-color: whitesmoke;
+}
+
+ul{
+    list-style: none;
+}
+
+li {
+    width: 25%;
+    background-color:whitesmoke;
+    margin: 2px;
+    padding-left: 5px;
+}
+
+.check {
+    float: right;
+    padding :5px 5px 0 0;
+}
+
+.trash {
+    float: right;
+    padding: 5px 0 0 5px; 
+}
+
+#add:hover{
+    cursor: pointer;
+    color:blue;
+    transform: scale(1.2, 1.2);
+}
+
+.check:hover {
+    color: green;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+}
+
+.trash:hover {
+    cursor: pointer;
+    color: red;
+    transform: scale(1.2, 1.2);
+}
+
