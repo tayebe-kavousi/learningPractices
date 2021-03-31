@@ -15,6 +15,9 @@ body {
     height: 96vh;
     background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 20%, #e6dee9 100%);;
 }
+.hidden {
+    display: none;
+}
 
 #input {
     width: 20%;
@@ -25,15 +28,18 @@ body {
     background-color: whitesmoke;
 }
 
-ul{
+#myList{
     list-style: none;
 }
 
-li {
+.toDo {
     width: 25%;
     background-color:whitesmoke;
     margin: 2px;
     padding-left: 5px;
+}
+.done {
+    color: rgb(21, 250, 21);
 }
 
 .check {
@@ -41,6 +47,9 @@ li {
     padding :5px 5px 0 0;
 }
 
+.checked{
+    color: rgb(23, 250, 21)
+}
 .trash {
     float: right;
     padding: 5px 0 0 5px; 
