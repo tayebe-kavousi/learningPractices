@@ -1,74 +1,158 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+
+/*--------------- variables -----------------*/
 :root {
     /* theme font-family */
     --Anton: 'Anton', sans-serif;
     --Abel: 'Abel', sans-serif;
-    --Josefin: 'Josefin Sans', sans-serif;
-    --Lexend: 'Lexend Deca', sans-serif;
-    --Livvic: 'Livvic', sans-serif;
 }
 
+
+/*------------------- body ---------------------*/
 body {
     width:90vw;
-    height: 96vh;
-    background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 20%, #e6dee9 100%);;
-}
-.hidden {
-    display: none;
-}
-
-#input {
-    width: 20%;
-    margin-left: 45px;
+    height: 100vh;
+    background-image: linear-gradient(130deg, #fdcbf1 0%, #fdcbf1 20%, #e6dee9 100%);
+    background-repeat: no-repeat;
+    background-size: auto;
+    margin:0 auto;
+    font-family:var(--Abel);
 }
 
+
+/*----------------------- logo ------------------------*/
+.logo {
+    font-size: 3rem;
+    font-family: var(--Anton);
+    padding: 1rem;
+    color: rgb(83, 83, 175);
+}
+
+
+/*-------------------- main part ---------------------*/
+main{
+    padding: 20px;
+}
+
+
+/*---------------------- form ------------------------*/
+form {
+    background-color:#fff;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+}
+
+/* Input */
+#input[type='text'] {
+    height: 30px;
+    background-color: #fff;
+    outline: 0;
+    border:none;
+    font-size: 1rem;
+    font-family: var(--Abel);
+    flex-grow: 1;
+}
+
+/* Add button */
 #add{
-    background-color: whitesmoke;
+    font-size: 2rem;
+    background-color:#fff;
+    outline: 0;
+    border:none;
+    color:#595959;
+}
+#add:hover{
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+    color: #000;
 }
 
+/*-------------------- list of tasks ----------------------*/
+.toDoList {
+    background-color:#fff;
+    border-radius: 5px;
+    margin-top:20px ;
+    padding: 10px 5px;
+    height: 100%;
+}
+
+/* ul */
 #myList{
+    padding-left: 0;
     list-style: none;
 }
 
+/* li */
 .toDo {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #888;
+    padding: 15px 0;
+    font-size: 1rem;
+    color: #595959;
+    /*
     width: 25%;
     height: 30px;
     background-color:whitesmoke;
     margin: 2px;
     padding-left: 5px;
+    */
 }
 
+/* check button */
 .check {
     float: right;
     padding :5px 5px 0 0;
 }
-
-.checked{
-    background-color: rgb(167, 192, 167)
-}
-
-.trash {
-    float: right;
-    padding: 5px 0 0 5px; 
-}
-
-#add:hover{
-    cursor: pointer;
-    color:blue;
-    transform: scale(1.2, 1.2);
-}
-
 .check:hover {
     color: green;
     cursor: pointer;
     transform: scale(1.2, 1.2);
 }
+.checked{
+    background-color: rgb(167, 192, 167)
+}
 
+/* trash button*/
+.trash {
+    float: right;
+    padding: 5px 0 0 5px; 
+}
 .trash:hover {
     cursor: pointer;
     color: red;
     transform: scale(1.2, 1.2);
 }
 
+/* Delete all button */
+.deleteAll{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.deleteAll:hover {
+    color:#000;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+}
+.hidden {
+    display: none;
+}
+
+/*---------------------------- Responsive Design------------------------*/
+@media only screen and (max-width: 600px){
+    #input {
+        width: 90%;
+    }
+    .toDo {
+        width: 100%;
+    }
+}

@@ -13,14 +13,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        <h2>To Do List</h2>
+        <h2 class="logo">No More <span>Procrastinating</span></h2>
     </header>
+
     <main>
-        <input type="text" name="task" id="input" val="" placeholder="Add new task ...">
-        <input type="submit" id='add' value="Add">
-        <ul id="myList"></ul>
-        <button class="hidden deleteAll"> Delete All</button>
+       
+        <form>
+            <input type="text" name="task" id="input" val="" placeholder="Add a new task ...">
+            <button type="submit" id='add'><i class="fas fa-plus-square"></i></button>
+        </form>
+
+        <div class="toDoList">
+            <ul id="myList"></ul>
+            <button class="hidden deleteAll"> Delete All</button>
+        </div>
     </main>
     
     <!--jQuery-->
