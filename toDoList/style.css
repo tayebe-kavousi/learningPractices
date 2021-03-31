@@ -34,12 +34,10 @@ body {
 
 .toDo {
     width: 25%;
+    height: 30px;
     background-color:whitesmoke;
     margin: 2px;
     padding-left: 5px;
-}
-.done {
-    color: rgb(21, 250, 21);
 }
 
 .check {
@@ -48,8 +46,9 @@ body {
 }
 
 .checked{
-    color: rgb(23, 250, 21)
+    background-color: rgb(167, 192, 167)
 }
+
 .trash {
     float: right;
     padding: 5px 0 0 5px; 
