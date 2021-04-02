@@ -58,6 +58,7 @@ $(function(){
         $('#placeHolderInProgress').remove();
         $('.itemsInProgress').append(item);
         item.removeClass('toDo');
+        item.addClass('progressing');
         
         $('li.started>i').remove();
         tasks.pop();

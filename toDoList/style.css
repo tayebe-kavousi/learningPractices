@@ -135,7 +135,6 @@ main{
 .deleteAll{
     display: flex;
     text-align: right;
-    /* justify-content: flex-end; */
     margin-top: .5rem;
     padding: 1% 1%;
     cursor: pointer;
@@ -171,10 +170,18 @@ main{
     color: #fff;
 }
 
-.placeHolder{
+.placeHolder, .progressing{
     color:var(--bgcolor);
     opacity: 0.5;
+    line-height: 1.5rem;
+    font-style: italic;
+    font-family: var(--Abel);
 }
+
+.progressing{
+    border-bottom: 1px solid #888;
+}
+
 /*---------------------------- Responsive Design------------------------*/
 @media only screen and (max-width: 600px){
     .logo{
