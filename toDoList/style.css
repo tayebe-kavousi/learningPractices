@@ -103,9 +103,12 @@ main{
     flex-grow: 1;
 }
 /* check button */
-.check {
+.check,
+.trash,
+.edit {
     float: right;
-    padding :.5% 1% 1% .5%; 
+    padding: 10px 5px ;
+    /* padding: 0.5% 2% 2% 0.5%;  */
     color:rgb(83, 83, 175);
 }
 .check:hover {
@@ -118,11 +121,6 @@ main{
 }
 
 /* trash button*/
-.trash {
-    float: right;
-    padding: .5% 1% 1% .5%; 
-    color:rgb(83, 83, 175);
-}
 .trash:hover {
     cursor: pointer;
     color: red;

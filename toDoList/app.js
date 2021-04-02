@@ -15,8 +15,9 @@ $(function(){
         if (val != ''){
             let htmlString = '<span class="toDoItem">'+ val+'</span>'
             let elem = $('<li class="toDo"></li>').html(htmlString);
+            elem.append('<i class="edit fas fa-edit"></i>');
             elem.append('<i name="trash" class="trash far fa-trash-alt"></i>');
-            elem.append('<a ><i name="check" class="check fas fa-check"></i>');
+            elem.append('<i name="check" class="check fas fa-check"></i>');
             $('#myList').append(elem);
             $('#input').val('');
 
@@ -28,13 +29,15 @@ $(function(){
     }
 
     function handleCheckOrDelete(e){
-        if($(e.target).hasClass('check')){
-            console.log("khiar")
+        let target = $(e.target);
+        if(target.hasClass('check')){
             checkToDo(e);
         }
-        if($(e.target).hasClass('trash')){
-            console.log("golabi")
+        if(target.hasClass('trash')){
             deleteToDo(e);
+        }
+        if(target.hasClass('edit')){
+            editToDo(e);
         }
     }
 
@@ -53,7 +56,12 @@ $(function(){
             item.removeClass('checked');
         }else item.addClass('checked');
     }
-    
+     function editToDo(e){
+        let item = $(e.target).parent();
+        item.attr('contenteditable','true');
+        item.height('2rem');
+        item.focus();
+     }
 
     function handleDeleteAll(){
         $('li').remove();
