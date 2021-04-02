@@ -10,12 +10,16 @@
     /* theme font-family */
     --Anton: 'Anton', sans-serif;
     --Abel: 'Abel', sans-serif;
+    --blueish: rgb(83, 83, 175);
+    --redish: rgb(151, 5, 5);
+    --bgcolor: linear-gradient(130deg, #fdcbf1 0%, #fdcbf1 20%, #e6dee9 100%)
+
 }
 
 
 /*------------------- body ---------------------*/
 html {
-    background-image: linear-gradient(130deg, #fdcbf1 0%, #fdcbf1 20%, #e6dee9 100%);
+    background-image: var(--bgcolor);
     background-repeat: no-repeat;
     background-clip: content-box;
     background-size: auto;
@@ -31,7 +35,7 @@ body {
     font-size: 3rem;
     font-family: var(--Anton);
     padding: 1rem;
-    color: rgb(83, 83, 175);
+    color:var(--blueish);
 }
 
 
@@ -53,7 +57,7 @@ main{
 /* Input */
 #input[type='text'] {
     flex-grow: 1;
-    height: 5%;
+    height: 3%;
     background-color: #fff;
     font-size: 1rem;
     font-family: var(--Abel);
@@ -68,7 +72,7 @@ main{
     background-color:#fff;
     outline: 0;
     border:none;
-    color:rgb(83, 83, 175);
+    color:var(--blueish);
 }
 #add:hover{
     cursor: pointer;
@@ -84,7 +88,7 @@ main{
     height: 100%;
 }
 
-/* ul */
+/* ol */
 #myList{
     padding-left: 0;
     list-style: none;
@@ -95,35 +99,35 @@ main{
     display: flex;
     align-items: center;
     border-bottom: 1px solid #888;
-    padding: 15px 0;
+    padding: 0px 0;
     font-size: 1rem;
     color: #595959;
 }
 .toDoItem{
     flex-grow: 1;
 }
-/* check button */
-.check,
+/* start delete and edit buttons */
+.start,
 .trash,
 .edit {
     float: right;
     padding: 10px 5px ;
     /* padding: 0.5% 2% 2% 0.5%;  */
-    color:rgb(83, 83, 175);
+    color:var(--blueish);
 }
-.check:hover {
+.start:hover {
     color:rgb(41, 124, 83);
     cursor: pointer;
     transform: scale(1.5, 1.5);
 }
-.checked{
-    background-color: rgb(167, 192, 167);
+.edit:hover {
+    cursor: pointer;
+    transform: scale(1.5, 1.5);
 }
-
 /* trash button*/
 .trash:hover {
     cursor: pointer;
-    color: red;
+    color:rgb(151, 5, 5);
     transform: scale(1.5, 1.5);
 }
 
@@ -137,20 +141,40 @@ main{
     cursor: pointer;
     font-size: 0.9rem;
     color: #fff;
-    background-color:rgb(83, 83, 175);
+    background-color:var(--blueish);
     outline: 0;
     border:none;
 }
 .deleteAll:hover {
-    color:#000;
     cursor: pointer;
     transform: scale(1.1, 1.1);
-    background-color:rgb(190, 120, 120);
+    background-color:var(--redish);
 }
 .hidden {
     display: none;
 }
 
+
+/*---------------- items done / in progress-------- */
+.grid_container{
+    display: flex;
+}
+
+.done ,
+.inProgress {
+    margin:2%;
+    padding:5px 25px;
+    width:30%;
+    height:40vh;
+    border-radius: 5px;
+    background-color:var(--blueish);
+    color: #fff;
+}
+
+.placeHolder{
+    color:var(--bgcolor);
+    opacity: 0.5;
+}
 /*---------------------------- Responsive Design------------------------*/
 @media only screen and (max-width: 600px){
     .logo{
@@ -162,5 +186,13 @@ main{
     }
     .toDo {
         width: 100%;
+    }
+    .grid_container {
+        display: grid;
+        align-items: center;
+    }
+    .done, .inProgress {
+        width:90%;
+        height:20vh;
     }
 }

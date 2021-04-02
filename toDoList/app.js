@@ -4,9 +4,11 @@ $(function(){
     let tasks;
     //submit event on form :
     $('form').on('submit',handelSubmitForm);
-    $('ul').on('click', handleCheckOrDelete);
+    $('ol').on('click', handle_start_Delete_edit);
     $('.deleteAll').on('click', handleDeleteAll);
-
+    $(document).on('dbclick', function(e){
+        e.preventDefault();
+    });
     //handlers 
 
     function handelSubmitForm(event){
@@ -17,7 +19,7 @@ $(function(){
             let elem = $('<li class="toDo"></li>').html(htmlString);
             elem.append('<i class="edit fas fa-edit"></i>');
             elem.append('<i name="trash" class="trash far fa-trash-alt"></i>');
-            elem.append('<i name="check" class="check fas fa-check"></i>');
+            elem.append('<i name="start" class="start fas fa-check"></i>');
             $('#myList').append(elem);
             $('#input').val('');
 
@@ -28,10 +30,10 @@ $(function(){
         }
     }
 
-    function handleCheckOrDelete(e){
+    function handle_start_Delete_edit(e){
         let target = $(e.target);
-        if(target.hasClass('check')){
-            checkToDo(e);
+        if(target.hasClass('start')){
+            startToDo(e);
         }
         if(target.hasClass('trash')){
             deleteToDo(e);
@@ -50,11 +52,19 @@ $(function(){
         }
     }
 
-    function checkToDo(e){
+    function startToDo(e){
         let item = $(e.target).parent();
-        if(item.hasClass('checked')){
-            item.removeClass('checked');
-        }else item.addClass('checked');
+        item.addClass('started');
+        $('#placeHolderInProgress').remove();
+        $('.itemsInProgress').append(item);
+        item.removeClass('toDo');
+        
+        $('li.started>i').remove();
+        tasks.pop();
+        console.log(tasks);
+        if(tasks.length < 2){
+            $('.deleteAll').addClass('hidden');
+        }
     }
      function editToDo(e){
         let item = $(e.target).parent();
@@ -64,7 +74,13 @@ $(function(){
      }
 
     function handleDeleteAll(){
-        $('li').remove();
+        $('#myList>li').remove();
         $(this).addClass('hidden');
     }
 });
+
+
+
+
+
+
