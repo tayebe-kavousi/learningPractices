@@ -15,8 +15,8 @@ $(function(){
         event.preventDefault();
         let val = $('#input').val();
         if (val != ''){
-            let htmlString = '<span class="toDoItem">'+ val+'</span>'
-            let elem = $('<li class="toDo"></li>').html(htmlString);
+            let htmlString = '<span class="textItem">'+ val+'</span>'
+            let elem = $('<li class="toDoItem"></li>').html(htmlString);
             elem.append('<i class="edit fas fa-edit"></i>');
             elem.append('<i name="trash" class="trash far fa-trash-alt"></i>');
             elem.append('<i name="start" class="start fas fa-check"></i>');
@@ -57,9 +57,9 @@ $(function(){
         item.addClass('started');
         $('#placeHolderInProgress').remove();
         $('.itemsInProgress').append(item);
-        item.removeClass('toDo');
-        item.addClass('progressing');
-        
+        item.removeClass('toDoItem');
+        item.addClass('doingItem');
+        item.attr('contenteditable','true');
         $('li.started>i').remove();
         tasks.pop();
         console.log(tasks);
@@ -78,6 +78,7 @@ $(function(){
         $('#myList>li').remove();
         $(this).addClass('hidden');
     }
+    
 });
 
 

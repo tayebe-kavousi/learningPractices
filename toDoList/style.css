@@ -1,23 +1,24 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-
-/*--------------- variables -----------------*/
+/*-------------------------- variables --------------------------*/
 :root {
     /* theme font-family */
     --Anton: 'Anton', sans-serif;
     --Abel: 'Abel', sans-serif;
     --blueish: rgb(83, 83, 175);
     --redish: rgb(151, 5, 5);
-    --bgcolor: linear-gradient(130deg, #fdcbf1 0%, #fdcbf1 20%, #e6dee9 100%)
+    --bgcolor: linear-gradient(130deg, #fdcbf1 0%, #fdcbf1 20%, #e6dee9 100%);
+
 
 }
 
 
-/*------------------- body ---------------------*/
+/*----------------------------- body ------------------------------*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     background-image: var(--bgcolor);
     background-repeat: no-repeat;
@@ -26,11 +27,12 @@ html {
     margin:0 auto;
     font-family:var(--Abel);
 }
+
 body {
     height: 100vh;
 }
 
-/*----------------------- logo ------------------------*/
+/*------ logo --------*/
 .logo {
     font-size: 3rem;
     font-family: var(--Anton);
@@ -39,13 +41,13 @@ body {
 }
 
 
-/*-------------------- main part ---------------------*/
+/*------ main part -------*/
 main{
     padding: 3%;
 }
 
 
-/*---------------------- form ------------------------*/
+/*----------------------------- input -----------------------------*/
 .container {
     display: flex;
     justify-content: space-between;
@@ -54,7 +56,7 @@ main{
     border-radius: 5px;
 }
 
-/* Input */
+/*------ Input text -------- */
 #input[type='text'] {
     flex-grow: 1;
     height: 3%;
@@ -65,7 +67,7 @@ main{
     border:none;
 }
 
-/* Add button */
+/* ----- Add button ------- */
 #add{
     text-align: right;
     font-size: 2rem;
@@ -79,59 +81,64 @@ main{
     transform: scale(1.2, 1.2);
 }
 
-/*-------------------- list of tasks ----------------------*/
-.toDoList {
-    background-color:#fff;
-    border-radius: 5px;
-    margin-top:0.5rem ;
-    padding: 0.5rem 0.5rem;
-    height: 100%;
+/*------------------------- list of tasks ----------------------------*/
+.grid_container{
+    display: flex;
 }
 
-/* ol */
-#myList{
-    padding-left: 0;
-    list-style: none;
-}
-
-/* li */
+.done ,
+.doing,
 .toDo {
+    margin:2%;
+    padding: 0.5rem 0.5rem;
+    width:30%;
+    height: 100%;
+    border-radius: 5px;
+    background-color:var(--blueish);
+    line-height: 1.5rem;
+    font-family: var(--Abel);
+    color:rgba(241, 227, 243, 0.5);
+}
+
+/*---------- li ---------*/
+.toDoItem, .doingItem, .doneItem {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #888;
     padding: 0px 0;
     font-size: 1rem;
-    color: #595959;
 }
-.toDoItem{
+/*--- list items texts ---*/
+.textItem{
     flex-grow: 1;
 }
-/* start delete and edit buttons */
+/*--------------- [start/delete/edit/finish] buttons ----------------*/
 .start,
 .trash,
 .edit {
     float: right;
     padding: 10px 5px ;
-    /* padding: 0.5% 2% 2% 0.5%;  */
-    color:var(--blueish);
+    color:#fff;
 }
+
 .start:hover {
     color:rgb(41, 124, 83);
     cursor: pointer;
     transform: scale(1.5, 1.5);
 }
+
 .edit:hover {
     cursor: pointer;
     transform: scale(1.5, 1.5);
 }
-/* trash button*/
+
 .trash:hover {
     cursor: pointer;
     color:rgb(151, 5, 5);
     transform: scale(1.5, 1.5);
 }
 
-/* Delete all button */
+/*------------------------ Delete all button -------------------------*/
 .deleteAll{
     display: flex;
     text-align: right;
@@ -153,35 +160,6 @@ main{
     display: none;
 }
 
-
-/*---------------- items done / in progress-------- */
-.grid_container{
-    display: flex;
-}
-
-.done ,
-.inProgress {
-    margin:2%;
-    padding:5px 25px;
-    width:30%;
-    height:40vh;
-    border-radius: 5px;
-    background-color:var(--blueish);
-    color: #fff;
-}
-
-.placeHolder, .progressing{
-    color:var(--bgcolor);
-    opacity: 0.5;
-    line-height: 1.5rem;
-    font-style: italic;
-    font-family: var(--Abel);
-}
-
-.progressing{
-    border-bottom: 1px solid #888;
-}
-
 /*---------------------------- Responsive Design------------------------*/
 @media only screen and (max-width: 600px){
     .logo{
@@ -191,14 +169,14 @@ main{
     #input {
         width: 90%;
     }
-    .toDo {
+    .toDoItem {
         width: 100%;
     }
     .grid_container {
         display: grid;
         align-items: center;
     }
-    .done, .inProgress {
+    .done, .doing, .toDo {
         width:90%;
         height:20vh;
     }
