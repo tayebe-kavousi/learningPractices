@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <h2 class="logo">No More <span>Procrastinating</span></h2>
+        <h1 class="logo">No More <span>Procrastinating</span></h2>
     </header>
 
     <main>
@@ -29,18 +29,19 @@
         <div class="grid_container">
             <div class="toDo">
                 <h2>To Do</h2>
-                <ol id="myList"></ol>
+                <p id="placeHolderToDo"class="placeHolder">No Task To Do</p>
+                <ol id="toDoList"></ol>
                 <button class="hidden deleteAll"> Delete All</button>
             </div>
             <div class="doing">
                 <h2>Doing</h2>
-                <p id="placeHolderInProgress"class="placeHolder">No Task In Progress</p>
-                <ol class="itemsInProgress"></ol>
+                <p id="placeHolderDoing"class="placeHolder">No Task In Progress</p>
+                <ol id="doingList"></ol>
             </div>
             <div class="done">
                 <h2>Done</h2>
                 <p id="placeHolderDone"class="placeHolder">No Task Has Done yet</p>
-                <ol class="itemsDone"></ol>
+                <ol id="doneList"></ol>
             </div>
             
         </div>

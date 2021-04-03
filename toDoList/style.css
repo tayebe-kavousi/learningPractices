@@ -81,15 +81,25 @@ main{
     transform: scale(1.2, 1.2);
 }
 
+
+
 /*------------------------- list of tasks ----------------------------*/
 .grid_container{
     display: flex;
 }
-
+h2 {
+    color:rgba(241, 227, 243, 0.5);
+    font-size: 2rem;
+    font-weight: bolder;
+    font-style: italic;
+    padding:5%;
+    text-align: center;
+    border-bottom: 1px solid rgba(241, 227, 243, 0.5);
+}
 .done ,
 .doing,
 .toDo {
-    margin:2%;
+    margin:2% 0 0 2%;
     padding: 0.5rem 0.5rem;
     width:30%;
     height: 100%;
@@ -97,13 +107,18 @@ main{
     background-color:var(--blueish);
     line-height: 1.5rem;
     font-family: var(--Abel);
-    color:rgba(241, 227, 243, 0.5);
+    color: #fff;
 }
-
+/*----------- placeHolders -------*/
+.placeHolder {
+    color: rgba(241, 227, 243, 0.5);
+    padding: 5%;
+}
 /*---------- li ---------*/
 .toDoItem, .doingItem, .doneItem {
     display: flex;
     align-items: center;
+    height: 3rem;
     border-bottom: 1px solid #888;
     padding: 0px 0;
     font-size: 1rem;
@@ -112,8 +127,12 @@ main{
 .textItem{
     flex-grow: 1;
 }
+
+
+
 /*--------------- [start/delete/edit/finish] buttons ----------------*/
 .start,
+.finish,
 .trash,
 .edit {
     float: right;
@@ -122,6 +141,11 @@ main{
 }
 
 .start:hover {
+    color:rgb(41, 124, 83);
+    cursor: pointer;
+    transform: scale(1.5, 1.5);
+}
+.finish:hover{
     color:rgb(41, 124, 83);
     cursor: pointer;
     transform: scale(1.5, 1.5);
@@ -147,7 +171,7 @@ main{
     cursor: pointer;
     font-size: 0.9rem;
     color: #fff;
-    background-color:var(--blueish);
+    background-color:rgba(241, 227, 243, 0.5);
     outline: 0;
     border:none;
 }
