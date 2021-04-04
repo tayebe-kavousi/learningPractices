@@ -94,14 +94,15 @@ h2 {
     font-style: italic;
     padding:5%;
     text-align: center;
-    border-bottom: 1px solid rgba(241, 227, 243, 0.5);
+    border: 1px solid rgba(204, 127, 214, 0.5);
+    border-radius: 5px;
 }
 .done ,
 .doing,
 .toDo {
-    margin:2% 0 0 2%;
+    margin:2% 0 0 1%;
     padding: 0.5rem 0.5rem;
-    width:30%;
+    width:32%;
     height: 100%;
     border-radius: 5px;
     background-color:var(--blueish);
@@ -112,7 +113,7 @@ h2 {
 /*----------- placeHolders -------*/
 .placeHolder {
     color: rgba(241, 227, 243, 0.5);
-    padding: 5%;
+    padding: 2%;
 }
 /*---------- li ---------*/
 .toDoItem, .doingItem, .doneItem {
@@ -162,7 +163,7 @@ h2 {
     transform: scale(1.5, 1.5);
 }
 
-/*------------------------ Delete all button -------------------------*/
+/*----- Delete all button ------*/
 .deleteAll{
     display: flex;
     text-align: right;
@@ -184,14 +185,38 @@ h2 {
     display: none;
 }
 
+/*----- clear the page button ------*/
+#clearThePage{
+    width:10%;
+    font-family: var(--Abel);
+    background-color:var(--blueish);
+    font-size: 1.1rem;
+    margin:2% 1% 2% 2%;
+    padding: 1%;
+    border: none;
+    border-radius: 5px;
+    color:rgba(241, 227, 243, 0.5);
+    float: right;
+    clear: both;
+}
+
+#clearThePage:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+    color: #fff;
+    font-weight: bolder;
+}
 /*---------------------------- Responsive Design------------------------*/
 @media only screen and (max-width: 600px){
     .logo{
         font-size: 1rem;
         width:70%;
+        height: 30px;
     }
+    
     #input {
         width: 90%;
+        
     }
     .toDoItem {
         width: 100%;
@@ -199,9 +224,29 @@ h2 {
     .grid_container {
         display: grid;
         align-items: center;
+        margin-top: 20px;
     }
     .done, .doing, .toDo {
         width:90%;
-        height:20vh;
+        height:100%;
+        margin:2% 0 4% 4%;
+    }
+    .doing{
+        background-color: rgb(181, 180, 241);
+        color: var(--blueish);
+    }
+    .doing h2, .doing i, #placeHolderDoing {
+        color: var(--blueish);
+    }
+    .doing h2{
+        border-color: var(--blueish);
+    }
+    #clearThePage{
+        border:1px solid white;
+        margin-bottom: 30px;
+        width:40%;
+        align-items: center;
+        float: none;
+        margin-left: 30%;
     }
 }
