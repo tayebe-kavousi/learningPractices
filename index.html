@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script crossorigin="anonymous">
+        (async()=>{
+            let url="https://github.com/tayebe-kavousi/learningPractices.git";
+            let response = await fetch(url);
+            let commits = await response.json();
+            console.log(commits[0].author.login);
+        })()
+    </script>
+</body>
+</html>
