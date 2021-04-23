@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="img" src="#" alt="a cat" width="300px">
+    <script>
+      showPic()
+        .then(response => console.log('yay!'))
+        .catch(error => {
+          console.log('Error!');
+          console.error(error);
+        });
+        
+        async function showPic(){
+          const url = "https://www.rd.com/wp-content/uploads/2021/04/GettyImages-1288861082-scaled.jpg?w=2560";
+          const response = await fetch(url, { 
+            mode:'no-cors',
+            headers : {'Access-Control-Allow-Origin': '*'}
+          });
+          const blob = await response.blob();
+          img.src = URL.createObjectURL(blob);
+        }
+
+    </script>
+  </body>
+</html>
