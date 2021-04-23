@@ -7,13 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <script crossorigin="anonymous">
-        (async()=>{
-            let url="https://github.com/tayebe-kavousi/learningPractices.git";
-            let response = await fetch(url);
-            let commits = await response.json();
-            console.log(commits[0].author.login);
-        })()
+    <script>
+        let url ='ws://127.0.0.1:5500/index.html';
+        let socket = new WebSocket(url);
     </script>
 </body>
 </html>
