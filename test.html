@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //print(5)
+        // function print(n){
+        //     for(let i = 0; i<=n; i++){
+        //         setTimeout(()=>console.log(i) , i * 1000);
+        //     }
+        // }
+
+    
+        function doSetTimeout1(num){
+            for (var i = 1 ; i <= num; i++) {
+                function setUpNum(x){
+                    setTimeout(() => console.log(x), x * 1000);
+                }
+                setUpNum(i);
+            }
+        }
+        
+//doSetTimeout1(5);
+
+
+// or 
+function doSetTimeout2(num){
+    setTimeout(()=> console.log(num), num * 1000);
+} 
+function loop(n){
+    for(let i = 1 ; i<= n; i++){
+        doSetTimeout2(i);
+    }
+}
+//loop(5);
+        
+
+        
+        
+
+    </script>
+</body>
+</html>
