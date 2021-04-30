@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" name="person" method="POST">
+        <input type="text" value="Teya" name="firstName">
+        <input type="text" value="Kavousi" name="lastName">
+    </form>
+    <script>
+        let formData = new FormData(document.forms.person);
+        formData.append('id','7690');
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST','/article/xmlhttprequest/post/user');
+        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+        xhr.send(formData);
+        xhr.onload  = function(){
+            alert(xhr.response);
+        }
+        xhr.onerror = (()=> alert("Error"));
+
+    </script>
+</body>
+</html>
