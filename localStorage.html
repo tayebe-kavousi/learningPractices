@@ -7,12 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <input id="text" type="text-area">
+    <textarea placeholder="Write here" id="area" style="width:200px; height:100px;"></textarea>
     <button id="clear">Clear</button>
     <script>
-        let text= document.getElementById("text");
+        area.oninput = function(event){
+            localStorage.setItem('userInput',`${area.value}`);
+        }
+        area.value= localStorage.getItem("userInput");
         clear.onclick = function(){
-            text.value = "";
+            area.value = "";
+            localStorage.removeItem("userInput");
             console.log("cleared")
         }
         
